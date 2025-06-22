@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB
 
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://your-frontend-domain.com"]}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://multi-algo-compressor.vercel.app"]}}, supports_credentials=True)
 
 @app.route('/hello', methods=['GET'])
 def hello():
