@@ -8,7 +8,8 @@ import { Download } from "lucide-react";
 import Compression from "../components/Compression";
 import AlgorithmInfo from "../components/AlgorithmInfo";
 
-const BACKEND_URL='http://192.168.1.10:5000';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const Index = () => {
 const [uploadedFile, setUploadedFile] = useState(null);
 const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
