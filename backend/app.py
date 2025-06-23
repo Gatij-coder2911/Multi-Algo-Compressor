@@ -87,7 +87,14 @@ def process_file():
 
     processing_time = round(time.time() - start_time, 4)
 
+    # Determine base Flask host
     flask_host = request.host_url.rstrip('/')
+
+    # If request comes from deployed Vercel frontend, force HTTPS
+    if "multi-algo-compressor.vercel.app" in request.headers.get("Origin", ""):
+        # Replace http with https
+        flask_host = flask_host.replace("http://", "https://")
+
     download_url = f"{flask_host}/download/{'compressed' if operation == 'compress' else 'decompressed'}/{output_name}"
 
 
