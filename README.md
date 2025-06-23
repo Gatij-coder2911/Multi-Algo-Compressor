@@ -1,5 +1,5 @@
 
-# 🔐 File Compression & Decompression Portal
+# 🎥 File Compression & Decompression Portal
 
 A powerful and intuitive full-stack web application that enables users to **compress** and **decompress** files using popular algorithms like **Huffman Coding**, **Run-Length Encoding (RLE)**, and **LZ77**.
 
@@ -88,7 +88,18 @@ By default, frontend runs at: `http://localhost:5173`
 
 ## 🌐 Deployed Demo
 
-🚀 Live: [https://multi-algo-compressor.vercel.app/](https://compression-portal.vercel.app)  
+🚀 Live: [View Live Project](https://compression-portal.vercel.app) 
+
+## 🎥 Video Demo
+
+🚀 Live: [Video Demo of Multi ALgo Compressor](https://drive.google.com/drive/folders/1dcEHLzOtGOtZkuRXhQIqiMZHS1LU--YE)  
+
+## Screnshots of Project
+![multi algo 1](https://github.com/user-attachments/assets/5fc6aca0-a410-4db9-a4ed-dcd784a5445f)
+
+![multi algo 2](https://github.com/user-attachments/assets/d21f3218-f44a-481e-8874-f21866dd6f0a)
+
+
 
 
 ---
