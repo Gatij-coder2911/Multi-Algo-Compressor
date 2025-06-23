@@ -20,6 +20,8 @@ const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
     processingTime: 0,
   });
 const [processedFile, setProcessedFile] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+
  
               /* HandleCompress */
 
@@ -34,6 +36,7 @@ const handleCompress = async() => {
   formData.append("algorithm", selectedAlgorithm);
 
    try {
+    setIsLoading(true);
     const response = await fetch(`${BACKEND_URL}/process`, {
       method: "POST",
       body: formData,
@@ -59,9 +62,12 @@ const handleCompress = async() => {
       url: data.download_url,
       type: "compressed",
     });
-}catch (error) {
-        alert(error.message);
-}};
+  }catch (error) {
+          alert(error.message);
+  }finally{
+    setIsLoading(false);
+  }
+};
 
 
 const handleDecompress = async() => {
@@ -75,6 +81,7 @@ const handleDecompress = async() => {
   formData.append("algorithm",selectedAlgorithm);
 
   try{ 
+    setIsLoading(true);
     const response = await fetch(`${BACKEND_URL}/process`,
       {
         method:"POST",
@@ -101,6 +108,8 @@ if (!response.ok) throw new Error("Decompression failed");
   } catch (err) {
     console.error("Error decompressing file:", err);
     alert("Decompression failed");
+  } finally{
+    setIsLoading(false);
   }
 }
 
@@ -119,6 +128,13 @@ const handleDownload = () =>{
 
 
 return (
+  <>
+    {isLoading && (
+      <div className="fixed inset-0 bg-white/60 z-50 flex items-center justify-center">
+        <div className="animate-spin h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+        <p className="ml-4 text-xl font-medium text-gray-700">Processing...</p>
+      </div>
+    )}
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
         <div className="max-w-6xl mx-auto space-y-8">
             { /* Header Section */}
@@ -222,6 +238,7 @@ return (
         </div>
 
     </div>
+    </>
  );
 };
 
