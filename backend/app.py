@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 from flask_cors import CORS
 import os
 import time
@@ -22,9 +22,9 @@ app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB
 
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://multi-algo-compressor.vercel.app"]}}, supports_credentials=True)
 
-@app.route('/hello', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello():
-    return jsonify({'message':"Hello world"})
+    return render_template("index.html")
 
 @app.route('/process', methods=['POST'])
 def process_file():
