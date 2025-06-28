@@ -88,7 +88,7 @@ By default, frontend runs at: `http://localhost:5173`
 
 ## 🌐 Deployed Demo
 
-🚀 Live: [View Live Project](https://compression-portal.vercel.app) 
+🚀 Live: [View Live Project](https://multi-algo-compressor.vercel.app/) 
 
 ## 🎥 Video Demo
 
